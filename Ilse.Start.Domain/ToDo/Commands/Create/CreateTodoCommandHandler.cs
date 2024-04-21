@@ -5,9 +5,9 @@ using Ilse.Repository.Contracts;
 namespace Ilse.Start.Domain.ToDo.Commands.Create;
 
 public class CreateTodoCommandHandler(IRepository repository)
-: ICommandHandler<CreateToDoCommand, OperationResult<CreateTodoCommandResponse>>
+: ICommandHandler<CreateToDoCommand, OperationResult<CreateToDoCommandResponse>>
 {
-    public async Task<OperationResult<CreateTodoCommandResponse>> HandleAsync(
+    public async Task<OperationResult<CreateToDoCommandResponse>> HandleAsync(
         CreateToDoCommand command,
         CancellationToken cancellationToken = default)
     {
@@ -15,6 +15,6 @@ public class CreateTodoCommandHandler(IRepository repository)
         var todo = command.GetTodo(id);
         _ = await repository.AddAsync(todo, cancellationToken);
         await repository.SaveChangesAsync(cancellationToken);
-        return CreateTodoCommandResponse.FromId(id);
+        return CreateToDoCommandResponse.FromId(id);
     }
 }

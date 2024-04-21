@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Api", "Ilse.Start.Api\Ilse.Start.Api.csproj", "{79DA71FB-77AC-4EC0-B729-CD254E9ED192}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Applicaction", "Ilse.Start.Applicaction\Ilse.Start.Applicaction.csproj", "{FE39ADA2-3A32-4731-BB16-9C90C1F7AE73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Application", "Ilse.Start.Application\Ilse.Start.Application.csproj", "{FE39ADA2-3A32-4731-BB16-9C90C1F7AE73}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Domain", "Ilse.Start.Domain\Ilse.Start.Domain.csproj", "{DD885B5B-D7CC-41CE-9964-3E7EA90EAB3B}"
 EndProject

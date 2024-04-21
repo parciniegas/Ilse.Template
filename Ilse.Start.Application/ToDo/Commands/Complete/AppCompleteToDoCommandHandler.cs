@@ -1,15 +1,16 @@
 using Ilse.Core.Results;
 using Ilse.Cqrs.Commands;
 using Ilse.Repository.Contracts;
+using Ilse.Start.Domain.ToDo;
 using Ilse.Start.Domain.ToDo.Errors;
 
-namespace Ilse.Start.Domain.ToDo.Commands.Complete;
+namespace Ilse.Start.Application.ToDo.Commands.Complete;
 
-public class CompleteToDoCommandHandler(IRepository repository)
-    : ICommandHandler<CompleteTodoCommand, OperationResult<CompleteTodoCommandResponse>>
+public class AppCompleteToDoCommandHandler(IRepository repository)
+    : ICommandHandler<AppCompleteToDoCommand, OperationResult<AppCompleteToDoCommandResponse>>
 {
-    public async Task<OperationResult<CompleteTodoCommandResponse>> HandleAsync(
-        CompleteTodoCommand command,
+    public async Task<OperationResult<AppCompleteToDoCommandResponse>> HandleAsync(
+        AppCompleteToDoCommand command,
         CancellationToken cancellationToken = default)
     {
         var todo = await repository.GetByIdAsync<ToDoItem, int>(command.Id, cancellationToken);
@@ -20,6 +21,6 @@ public class CompleteToDoCommandHandler(IRepository repository)
         todo.Complete(command.Notes);
         await repository.UpdateAsync(todo, cancellationToken);
         await repository.SaveChangesAsync(cancellationToken);
-        return CompleteTodoCommandResponse.FromItem(todo);
+        return AppCompleteToDoCommandResponse.FromItem(todo);
     }
 }

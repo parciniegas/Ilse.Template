@@ -15,19 +15,16 @@
     <PackageReference Include="Ilse.MultiTenant" Version="1.0.0" />
     <PackageReference Include="Ilse.Repository" Version="1.2.0" />
     <PackageReference Include="Ilse.TenantContext" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ilse.Start.Applicaction\Ilse.Start.Applicaction.csproj" />
+    <ProjectReference Include="..\Ilse.Start.Application\Ilse.Start.Application.csproj" />
     <ProjectReference Include="..\Ilse.Start.Domain\Ilse.Start.Domain.csproj" />
     <ProjectReference Include="..\Ilse.Start.Infraestructure\Ilse.Start.Infraestructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Endpoints\ToDo\" />
   </ItemGroup>
 
 </Project>

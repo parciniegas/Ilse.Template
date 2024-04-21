@@ -10,10 +10,10 @@ public record CreateToDoCommand(string Title, string? Description = null) : ICom
     }
 }
 
-public record CreateTodoCommandResponse(int Id)
+public record CreateToDoCommandResponse(int Id)
 {
-    public static CreateTodoCommandResponse FromId(int id)
+    public static CreateToDoCommandResponse FromId(int id)
     {
-        return new CreateTodoCommandResponse(id);
+        return new CreateToDoCommandResponse(id);
     }
 }

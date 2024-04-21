@@ -4,10 +4,10 @@ namespace Ilse.Start.Domain.ToDo.Commands.Complete;
 
 public record CompleteTodoCommand(int Id, string? Notes = null) : BaseCommand;
 
-public record CompleteTodoCommandResponse(int Id)
+public record CompleteTodoCommandResponse(ToDoItem Item)
 {
-    public static CompleteTodoCommandResponse FromId(int id)
+    public static CompleteTodoCommandResponse FromItem(ToDoItem item)
     {
-        return new CompleteTodoCommandResponse(id);
+        return new CompleteTodoCommandResponse(item);
     }
 }

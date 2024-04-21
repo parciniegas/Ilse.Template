@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Ilse.Start.Applicaction\Ilse.Start.Applicaction.csproj" />
+      <ProjectReference Include="..\Ilse.Start.Application\Ilse.Start.Application.csproj" />
       <ProjectReference Include="..\Ilse.Start.Domain\Ilse.Start.Domain.csproj" />
     </ItemGroup>
 
