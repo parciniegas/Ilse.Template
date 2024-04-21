@@ -11,4 +11,8 @@
       <ProjectReference Include="..\Ilse.Start.Domain\Ilse.Start.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Ilse.Repository" Version="1.2.0" />
+    </ItemGroup>
+
 </Project>

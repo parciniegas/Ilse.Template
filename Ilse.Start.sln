@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Application", "I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Domain", "Ilse.Start.Domain\Ilse.Start.Domain.csproj", "{DD885B5B-D7CC-41CE-9964-3E7EA90EAB3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Infraestructure", "Ilse.Start.Infraestructure\Ilse.Start.Infraestructure.csproj", "{4DD00681-7CDF-40BD-891A-07DB57F99DC7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Infrastructure", "Ilse.Start.Infrastructure\Ilse.Start.Infrastructure.csproj", "{4DD00681-7CDF-40BD-891A-07DB57F99DC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

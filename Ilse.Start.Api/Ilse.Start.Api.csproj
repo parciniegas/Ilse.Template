@@ -24,7 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Ilse.Start.Application\Ilse.Start.Application.csproj" />
     <ProjectReference Include="..\Ilse.Start.Domain\Ilse.Start.Domain.csproj" />
-    <ProjectReference Include="..\Ilse.Start.Infraestructure\Ilse.Start.Infraestructure.csproj" />
+    <ProjectReference Include="..\Ilse.Start.Infrastructure\Ilse.Start.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
