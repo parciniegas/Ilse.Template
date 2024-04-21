@@ -1,0 +1,12 @@
+{
+  "author": "Pedro Arciniegas",
+  "classifications": ["Web"],
+  "name": "Ilse.Start Api Clean Architecture",
+  "identity": "Ilse.Start.CleanApi",
+  "shortName": "ilse.startapi",
+  "tags": {
+    "language": "C#"
+  },
+  "sourceName": "Ilse.Start",
+  "preferNameDirectory": "true"
+}

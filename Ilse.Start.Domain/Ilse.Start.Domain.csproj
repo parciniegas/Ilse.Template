@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ilse.Core" Version="1.0.0" />
+    <PackageReference Include="Ilse.Cqrs" Version="1.0.2" />
+    <PackageReference Include="Ilse.Events" Version="1.0.5" />
+    <PackageReference Include="Ilse.Repository" Version="1.2.0" />
+  </ItemGroup>
+
+</Project>

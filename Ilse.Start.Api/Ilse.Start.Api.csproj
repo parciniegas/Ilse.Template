@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ilse.CorrelationId" Version="1.1.0" />
+    <PackageReference Include="Ilse.Cqrs" Version="1.0.2" />
+    <PackageReference Include="Ilse.Events" Version="1.0.5" />
+    <PackageReference Include="Ilse.MinimalApi" Version="1.0.2" />
+    <PackageReference Include="Ilse.MultiTenant" Version="1.0.0" />
+    <PackageReference Include="Ilse.Repository" Version="1.2.0" />
+    <PackageReference Include="Ilse.TenantContext" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ilse.Start.Applicaction\Ilse.Start.Applicaction.csproj" />
+    <ProjectReference Include="..\Ilse.Start.Domain\Ilse.Start.Domain.csproj" />
+    <ProjectReference Include="..\Ilse.Start.Infraestructure\Ilse.Start.Infraestructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Config\" />
+    <Folder Include="Endpoints\ToDo\" />
+  </ItemGroup>
+
+</Project>
