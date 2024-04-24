@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Domain", "Ilse.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Infrastructure", "Ilse.Start.Infrastructure\Ilse.Start.Infrastructure.csproj", "{4DD00681-7CDF-40BD-891A-07DB57F99DC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ilse.Start.Common", "Ilse.Start.Common\Ilse.Start.Common.csproj", "{9C32404C-2B33-4F2B-BDA5-EB9620B319B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{4DD00681-7CDF-40BD-891A-07DB57F99DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DD00681-7CDF-40BD-891A-07DB57F99DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DD00681-7CDF-40BD-891A-07DB57F99DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C32404C-2B33-4F2B-BDA5-EB9620B319B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C32404C-2B33-4F2B-BDA5-EB9620B319B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C32404C-2B33-4F2B-BDA5-EB9620B319B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C32404C-2B33-4F2B-BDA5-EB9620B319B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

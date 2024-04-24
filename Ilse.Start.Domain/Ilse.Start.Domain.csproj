@@ -10,7 +10,11 @@
     <PackageReference Include="Ilse.Core" Version="1.0.0" />
     <PackageReference Include="Ilse.Cqrs" Version="1.0.2" />
     <PackageReference Include="Ilse.Events" Version="1.0.5" />
-    <PackageReference Include="Ilse.Repository" Version="1.2.0" />
+    <PackageReference Include="Ilse.Repository" Version="1.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ilse.Start.Common\Ilse.Start.Common.csproj" />
   </ItemGroup>
 
 </Project>

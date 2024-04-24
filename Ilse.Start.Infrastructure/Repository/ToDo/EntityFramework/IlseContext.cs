@@ -1,8 +1,9 @@
 using Ilse.Repository.Abstracts;
+using Ilse.Repository.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-namespace Ilse.Start.Infrastructure.Repository;
+namespace Ilse.Start.Infrastructure.Repository.ToDo.EntityFramework;
 
 public class IlseContext(
     DbContextOptions<IlseContext> dbContextOptions,

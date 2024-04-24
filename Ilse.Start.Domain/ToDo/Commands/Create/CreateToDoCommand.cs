@@ -4,9 +4,13 @@ namespace Ilse.Start.Domain.ToDo.Commands.Create;
 
 public record CreateToDoCommand(string Title, string? Description = null) : ICommand
 {
-    public ToDoItem GetTodo(int id)
+    public ToDoItem GetTodo()
     {
-        return new ToDoItem(Title, Description) {Id = id};
+        var todo = new ToDoItem(Title, Description)
+        {
+            CreatedAt = DateTime.Now
+        };
+        return todo;
     }
 }
 

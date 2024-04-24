@@ -13,7 +13,7 @@
     <PackageReference Include="Ilse.Events" Version="1.0.5" />
     <PackageReference Include="Ilse.MinimalApi" Version="1.0.2" />
     <PackageReference Include="Ilse.MultiTenant" Version="1.0.0" />
-    <PackageReference Include="Ilse.Repository" Version="1.2.0" />
+    <PackageReference Include="Ilse.Repository" Version="1.2.1" />
     <PackageReference Include="Ilse.TenantContext" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="8.0.4" />
@@ -25,6 +25,10 @@
     <ProjectReference Include="..\Ilse.Start.Application\Ilse.Start.Application.csproj" />
     <ProjectReference Include="..\Ilse.Start.Domain\Ilse.Start.Domain.csproj" />
     <ProjectReference Include="..\Ilse.Start.Infrastructure\Ilse.Start.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Endpoints\ToDo\Complete\" />
   </ItemGroup>
 
 </Project>
