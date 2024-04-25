@@ -1,6 +1,5 @@
 using Ilse.Core.Results;
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.ToDo.Queries.GetById;
 
 namespace Ilse.Start.Domain.ToDo.Queries.GetByStatus;
 

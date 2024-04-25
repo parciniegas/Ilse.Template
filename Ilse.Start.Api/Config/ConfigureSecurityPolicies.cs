@@ -8,9 +8,9 @@ internal static partial class Config
         builder.Services.AddAuthorization();
 
         builder.Services.AddAuthorizationBuilder()
-            .AddPolicy("todo.create", policy =>
+            .AddPolicy(Policies.TodoCreate, policy =>
                 policy.RequireAssertion(c =>
-                    c.User.HasClaim("catalog.guest", "true")));
+                    c.User.HasClaim(Policies.TodoCreate, "true")));
 
     }
 }

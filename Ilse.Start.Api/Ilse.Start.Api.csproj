@@ -27,8 +27,4 @@
     <ProjectReference Include="..\Ilse.Start.Infrastructure\Ilse.Start.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Endpoints\ToDo\Complete\" />
-  </ItemGroup>
-
 </Project>

@@ -4,7 +4,7 @@ namespace Ilse.Start.Api.Endpoints.ToDo.Create;
 
 public record CreateToDoRequest(string Title, string? Description = null)
 {
-    public AppCreateToDoCommand CreateToDoCommand()
+    public AppCreateToDoCommand GetAppCreateToDoCommand()
     {
         return new AppCreateToDoCommand(Title, Description);
     }
