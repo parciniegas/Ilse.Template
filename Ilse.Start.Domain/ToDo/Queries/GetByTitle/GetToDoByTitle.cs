@@ -4,10 +4,10 @@ namespace Ilse.Start.Domain.ToDo.Queries.GetByTitle;
 
 public record GetToDoByTitleQuery(string Title): IQuery;
 
-public record GetTodoByTitleQueryResponse(int Id, string Title, string Description, bool IsComplete)
+public record GetToDoByTitleResponse(ToDoItem ToDoItem)
 {
-    public static GetTodoByTitleQueryResponse FromToDoItem(ToDoItem todo)
+    public static GetToDoByTitleResponse FromToDoItem(ToDoItem todo)
     {
-        return new GetTodoByTitleQueryResponse(todo.Id, todo.Title, todo.Description ?? string.Empty, todo.IsDone);
+        return new GetToDoByTitleResponse(todo);
     }
 }

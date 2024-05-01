@@ -13,14 +13,15 @@ public class CompleteToDoRequestHandler : IEndpoint
 {
     public RouteHandlerBuilder Configure(IEndpointRouteBuilder endpoints)
     {
-        return endpoints.MapPut("/todos/{id}/complete", HandleAsync)
+        return endpoints.MapPut($"/{Resources.ToDos}/{{id:int}}/complete", HandleAsync)
             .RequireAuthorization(Policies.TodoComplete)
-            .WithTags("");
+            .WithTags(Resources.ToDos);
     }
 
     private static async Task<Results<Accepted, BadRequest<ProblemDetails>>>
         HandleAsync(ICommandDispatcher commandDispatcher,
             IContextAccessor<CorrelationContext> contextAccessor,
+            int id,
             CompleteToDoRequest request)
     {
         var command = request.GetAppCompleteToDoCommand();

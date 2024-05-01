@@ -4,11 +4,11 @@ using Ilse.Start.Domain.ToDo.Queries.GetAll;
 
 namespace Ilse.Start.Application.ToDo.Queries.GetAll;
 
-public record AppGetAllTodosQuery() : IQuery
+public record AppGetAllToDosQuery() : IQuery
 {
-    public GetAllTodosQuery GetAllTodosQuery()
+    public static GetAllToDosQuery GetAllToDosQuery()
     {
-        return new GetAllTodosQuery();
+        return new GetAllToDosQuery();
     }
 }
 

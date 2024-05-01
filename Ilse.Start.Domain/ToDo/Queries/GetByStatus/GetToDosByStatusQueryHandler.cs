@@ -10,7 +10,7 @@ public class GetToDosByStatusQueryHandler(IToDoRepository repository)
         HandleAsync(GetToDosByStatusQuery query, CancellationToken cancellationToken = new CancellationToken())
     {
         var todos = await
-            repository.GetByStatusAsync(query.IsDone);
+            repository.GetByStatusAsync(query.IsCompleted);
         var list = todos.ToList();
 
         return GetToDosByStatusQueryResponse.FromToDoItem(list);

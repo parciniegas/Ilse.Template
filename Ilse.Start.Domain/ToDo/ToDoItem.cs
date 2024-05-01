@@ -5,15 +5,25 @@ namespace Ilse.Start.Domain.ToDo;
 public class ToDoItem(string title, string? description)
 {
     private static readonly ToDoItem Empty = new("Empty", "Empty");
-    
-    public ToDoItem(string title, string? description, DateTime? completedAt, string? notes) 
+
+    public ToDoItem(string title, string? description, DateTime? completedAt, string? notes)
         : this(title, description)
     {
         CompletedAt = completedAt;
         CompletedNotes = notes;
     }
 
-    public int Id { get; set; }
+    public ToDoItem(int id, string title, string description,
+        DateTime createdAt, DateTime? completedAt, string? notes, bool isDone)
+        : this(title, description, completedAt, notes)
+    {
+        Id = id;
+        CreatedAt = createdAt;
+        IsDone = isDone;
+    }
+
+
+    public int Id { get; init; }
     public string Title { get; set; } = title;
     public string? Description { get; set; } = description;
     public DateTime CreatedAt { get; init; } = DateTime.Now;

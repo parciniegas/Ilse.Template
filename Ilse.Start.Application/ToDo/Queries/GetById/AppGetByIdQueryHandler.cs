@@ -5,16 +5,18 @@ using Ilse.Start.Domain.ToDo.Queries.GetById;
 namespace Ilse.Start.Application.ToDo.Queries.GetById;
 
 public class AppGetByIdQueryHandler(IQueryDispatcher queryDispatcher):
-    IQueryHandler<AppGetByIdQuery, OperationResult<AppGetToDoByIdQueryResponse>>
+    IQueryHandler<AppGetToDoByIdQuery, OperationResult<AppGetToDoByIdQueryResponse>>
 {
     public async Task<OperationResult<AppGetToDoByIdQueryResponse>>
-        HandleAsync(AppGetByIdQuery query, CancellationToken cancellationToken = new CancellationToken())
+        HandleAsync(AppGetToDoByIdQuery query, CancellationToken cancellationToken = new CancellationToken())
     {
+        var domainQuery = AppGetToDoByIdQuery.GetToDoByIdQuery(query.Id);
         var response =
-            await queryDispatcher.QueryAsync<GetToDoByIdQuery, OperationResult<GetTodoByIdQueryResponse>>(query, cancellationToken);
+            await queryDispatcher.QueryAsync
+                <GetToDoByIdQuery, OperationResult<GetTodoByIdQueryResponse>>(domainQuery, cancellationToken);
 
         return response.IsSuccess
-            ? AppGetToDoByIdQueryResponse.FromBase(response.Value!)
+            ? AppGetToDoByIdQueryResponse.FromDomainResponse(response.Value!)
             : response.Error!;
     }
 }

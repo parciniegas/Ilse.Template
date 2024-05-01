@@ -4,10 +4,10 @@ namespace Ilse.Start.Domain.ToDo.Queries.GetById;
 
 public record GetToDoByIdQuery(int Id) : IQuery;
 
-public record GetTodoByIdQueryResponse(int Id, string Title, string Description, bool IsComplete)
+public record GetTodoByIdQueryResponse(ToDoItem ToDoItem)
 {
     public static GetTodoByIdQueryResponse FromToDoItem(ToDoItem todo)
     {
-        return new GetTodoByIdQueryResponse(todo.Id, todo.Title, todo.Description ?? string.Empty, todo.IsDone);
+        return new GetTodoByIdQueryResponse(todo);
     }
 }

@@ -3,7 +3,7 @@ using Ilse.Cqrs.Queries;
 
 namespace Ilse.Start.Domain.ToDo.Queries.GetByStatus;
 
-public record GetToDosByStatusQuery(bool IsDone): IQuery;
+public record GetToDosByStatusQuery(bool IsCompleted) : IQuery;
 
 public record GetToDosByStatusQueryResponse(List<ToDoItem> ToDoItems)
 {

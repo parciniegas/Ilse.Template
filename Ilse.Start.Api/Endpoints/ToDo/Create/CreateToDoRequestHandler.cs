@@ -14,7 +14,7 @@ public class CreateToDoRequestHandler: IEndpoint
     {
         return endpoints.MapPost("/todos", HandleAsync)
             .RequireAuthorization("todo.create")
-            .WithTags("ToDo");
+            .WithTags("ToDos");
     }
 
     private static async Task<Results<

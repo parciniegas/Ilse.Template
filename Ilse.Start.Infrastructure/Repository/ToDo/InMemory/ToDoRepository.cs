@@ -7,23 +7,21 @@ public class ToDoRepository: IToDoRepository
 {
     private readonly List<ToDo> _todos = [];
 
-    public Task<int> CreateAsync(ToDoItem todo)
+    public Task<int> CreateAsync(ToDoItem todoItem)
     {
         var id = _todos.Count + 1;
-        var toDo = new ToDo(id, todo.Title, todo.Description, todo.CreatedAt, todo.CompletedAt,
-            todo.CompletedNotes);
+        var toDo = new ToDo(id, todoItem.Title, todoItem.Description, todoItem.CreatedAt, todoItem.CompletedAt,
+            todoItem.CompletedNotes);
         _todos.Add(toDo);
         return Task.FromResult(id);
     }
 
-    public async Task UpdateAsync(ToDoItem todo)
+    public async Task UpdateAsync(ToDoItem todoItem)
     {
-        var todoToUpdate = (await _todos.AsQueryable().FirstOrDefaultAsync(t => t.Id == todo.Id))
-            ?? throw new Exception($"ToDo with id {todo.Id} not found");
-        todoToUpdate.Title = todo.Title;
-        todoToUpdate.Description = todo.Description;
-        todoToUpdate.CompletedAt = todo.CompletedAt;
-        todoToUpdate.Notes = todo.CompletedNotes;
+        var todoToUpdate = (await _todos.AsQueryable().FirstOrDefaultAsync(t => t.Id == todoItem.Id))
+            ?? throw new Exception($"ToDo with id {todoItem.Id} not found");
+        todoToUpdate.CompletedAt = todoItem.CompletedAt;
+        todoToUpdate.Notes = todoItem.CompletedNotes;
     }
 
     public async Task<IEnumerable<ToDoItem>> GetAllAsync()

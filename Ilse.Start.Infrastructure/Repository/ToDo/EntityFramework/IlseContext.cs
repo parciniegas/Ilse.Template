@@ -10,5 +10,11 @@ public class IlseContext(
     IServiceProvider serviceProvider,
     IOptions<RepositoryOptions> repositoryOptions) : BaseContext(dbContextOptions, serviceProvider, repositoryOptions)
 {
-    
+    public required DbSet<ToDo> ToDos { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(IlseContext).Assembly);
+    }
 }
