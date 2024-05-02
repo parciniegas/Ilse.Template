@@ -14,7 +14,7 @@ public class GetToDosByStatusHandler: IEndpoint
 {
     public RouteHandlerBuilder Configure(IEndpointRouteBuilder endpoints)
     {
-        return endpoints.MapGet("/api/todo/{status:bool}", HandleAsync)
+        return endpoints.MapGet($"{Resources.ToDos}/by_status/{{status:bool}}", HandleAsync)
             .RequireAuthorization(Policies.TodoRead)
             .WithTags(Resources.ToDos);
     }

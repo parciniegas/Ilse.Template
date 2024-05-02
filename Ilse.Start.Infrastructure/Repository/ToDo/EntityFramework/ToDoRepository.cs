@@ -26,28 +26,30 @@ public class ToDoRepository(IRepository repository): IToDoRepository
         return todoItem;
     }
 
-    public Task<IEnumerable<ToDoItem>> GetAllAsync()
+    public async Task<IEnumerable<ToDoItem>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var todos = await repository.GetAllAsync<ToDo>();
+        var todoItems = todos.Select(t => t.GetToDoItem());
+        return todoItems;
     }
 
-    public Task<ToDoItem> GetByTitleAsync(string title)
+    public async Task<ToDoItem> GetByTitleAsync(string title)
     {
-        throw new NotImplementedException();
+        var todos = await repository.GetByAsync<ToDo>(t => t.Title == title);
+        var todo = todos.FirstOrDefault();
+        return todo?.GetToDoItem() ?? ToDoItem.GetNull();
     }
 
-    public Task<IEnumerable<ToDoItem>> GetByStatusAsync(bool isDone)
+    public async Task<IEnumerable<ToDoItem>> GetByStatusAsync(bool isDone)
     {
-        throw new NotImplementedException();
+        var todos = await repository.GetByAsync<ToDo>(t => t.IsDone == isDone);
+        var todoItems = todos.Select(t => t.GetToDoItem());
+        return todoItems;
     }
 
-    public Task<IEnumerable<ToDoItem>> GetToDoItemsAsync(Func<ToDoItem, bool> predicate)
+    public async Task<bool> ExistsAsync(string title)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> ExistsAsync(string title)
-    {
-        throw new NotImplementedException();
+        var exist = (await repository.GetByAsync<ToDo>(t => t.Title == title)).Any();
+        return exist;
     }
 }

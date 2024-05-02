@@ -15,7 +15,7 @@ public class CompleteToDoRequestHandler : IEndpoint
     {
         return endpoints.MapPut($"/{Resources.ToDos}/{{id:int}}/complete", HandleAsync)
             .RequireAuthorization(Policies.TodoComplete)
-            .WithTags(Resources.ToDos);
+            .WithTags(Groups.Todo);
     }
 
     private static async Task<Results<Accepted, BadRequest<ProblemDetails>>>

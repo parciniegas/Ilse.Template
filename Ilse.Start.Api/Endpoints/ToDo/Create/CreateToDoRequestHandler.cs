@@ -2,6 +2,7 @@ using Ilse.Core.Context;
 using Ilse.Core.Results;
 using Ilse.Cqrs.Commands;
 using Ilse.MinimalApi.EndPoints;
+using Ilse.Start.Api.Config;
 using Ilse.Start.Application.ToDo.Commands.Create;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,9 @@ public class CreateToDoRequestHandler: IEndpoint
 {
     public RouteHandlerBuilder Configure(IEndpointRouteBuilder endpoints)
     {
-        return endpoints.MapPost("/todos", HandleAsync)
-            .RequireAuthorization("todo.create")
-            .WithTags("ToDos");
+        return endpoints.MapPost($"/{Resources.ToDos}", HandleAsync)
+            .RequireAuthorization(Policies.TodoCreate)
+            .WithTags(Groups.Todo);
     }
 
     private static async Task<Results<

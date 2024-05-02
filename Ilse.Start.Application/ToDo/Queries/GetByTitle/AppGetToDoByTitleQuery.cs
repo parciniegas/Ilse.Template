@@ -6,8 +6,10 @@ namespace Ilse.Start.Application.ToDo.Queries.GetByTitle;
 
 public record AppGetToDoByTitleQuery(string Tittle) : IQuery
 {
-    public static GetToDoByTitleQuery FromTitle(string tittle) =>
+    public static GetToDoByTitleQuery GetToDoByTitleQuery(string tittle) =>
         new GetToDoByTitleQuery(tittle);
+
+    public static AppGetToDoByTitleQuery FromTitle(string title) => new AppGetToDoByTitleQuery(title);
 }
 
 public record AppGetToDoByTitleResponse(ToDoItem ToDoItem)

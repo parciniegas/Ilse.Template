@@ -11,7 +11,7 @@ public class GetToDoByTitleHandler(IQueryDispatcher queryDispatcher)
     public async Task<OperationResult<AppGetToDoByTitleResponse>>
         HandleAsync(AppGetToDoByTitleQuery query, CancellationToken cancellationToken = new CancellationToken())
     {
-        var domainQuery = AppGetToDoByTitleQuery.FromTitle(query.Tittle);
+        var domainQuery = AppGetToDoByTitleQuery.GetToDoByTitleQuery(query.Tittle);
         var response =
             await queryDispatcher.QueryAsync
                 <GetToDoByTitleQuery, OperationResult<GetToDoByTitleResponse>>(domainQuery, cancellationToken);
