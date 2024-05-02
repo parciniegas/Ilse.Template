@@ -8,5 +8,7 @@
     "language": "C#"
   },
   "sourceName": "Ilse.Start",
-  "preferNameDirectory": "true"
+  "preferNameDirectory": "true",
+  "defaultName": "Ilse.CleanApi",
+  "preferDefaultName": "true"
 }
