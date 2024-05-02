@@ -31,7 +31,7 @@ public class CreateToDoRequestHandler: IEndpoint
         var result =
             await commandDispatcher.ExecAsync<AppCreateToDoCommand, OperationResult<AppCreateToDoCommandResponse>>(request.GetAppCreateToDoCommand());
         if (result.IsSuccess)
-            return TypedResults.Created($"/todos/{result.Value!.Id}", new CreateToDoRequestResponse(result.Value!.Id));
+            return TypedResults.Created($"{Resources.ToDos}/{result.Value!.Id}", new CreateToDoRequestResponse(result.Value!.Id));
 
         var problemDetails = result.ProblemDetails(correlationAccessor.Context!.CorrelationId);
         logger.LogError(problemDetails.ToJson());

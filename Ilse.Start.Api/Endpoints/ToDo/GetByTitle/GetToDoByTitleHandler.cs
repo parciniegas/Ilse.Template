@@ -16,7 +16,7 @@ public class GetToDoByTitleHandler: IEndpoint
     {
         return endpoints.MapGet($"{Resources.ToDos}/by_title/{{title}}", HandleAsync)
             .RequireAuthorization(Policies.TodoRead)
-            .WithTags(Resources.ToDos);
+            .WithTags(Groups.Todo);
     }
 
     private async Task<Results<

@@ -16,7 +16,7 @@ public class GetToDosByStatusHandler: IEndpoint
     {
         return endpoints.MapGet($"{Resources.ToDos}/by_status/{{status:bool}}", HandleAsync)
             .RequireAuthorization(Policies.TodoRead)
-            .WithTags(Resources.ToDos);
+            .WithTags(Groups.Todo);
     }
 
     private async Task<Results<
