@@ -19,7 +19,7 @@ public class GetToDoByTitleHandler: IEndpoint
             .WithTags(Groups.Todo);
     }
 
-    private async Task<Results<
+    private static async Task<Results<
         Ok<ToDoDto>,
         BadRequest<ProblemDetails>>>
         HandleAsync(IContextAccessor<CorrelationContext> contextAccessor,
