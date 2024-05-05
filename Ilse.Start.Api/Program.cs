@@ -20,6 +20,7 @@ builder.Services.AddProblemDetails();
 
 Config.ConfigureSwagger(builder);
 Config.ConfigureSecurityPolicies(builder);
+Config.ConfigureLogging(builder);
 
 builder.Services.AddCorrelationId();
 builder.Services.AddMultiTenant();
