@@ -2,7 +2,6 @@ using Ilse.Core.Context;
 using Ilse.Cqrs.Queries;
 using Ilse.MinimalApi.EndPoints;
 using Ilse.Start.Api.Config;
-using Ilse.Start.Api.Endpoints.ToDo.Dto;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +31,6 @@ private static async Task<Results<
         //     return TypedResults.BadRequest(result.ProblemDetails(contextAccessor.Context!.CorrelationId));
         // var todos = result.Value!.ToDoItems.Select(ToDoDto.FromToDoItem).ToArray();
 
-        return TypedResults.Ok(request);
+        return await Task.FromResult(TypedResults.Ok(request));
     }
 }

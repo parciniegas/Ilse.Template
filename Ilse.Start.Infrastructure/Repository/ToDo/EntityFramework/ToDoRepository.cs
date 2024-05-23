@@ -7,16 +7,47 @@ public class ToDoRepository(IRepository repository): IToDoRepository
 {
     public async Task<int> CreateAsync(ToDoItem todoItem)
     {
-        var toDo = new ToDo(todoItem.Title, todoItem.Description);
+        var toDo = new ToDo(todoItem.Title, todoItem.Description)
+        {
+            Tags = todoItem.Tags.Select(t => new Tag(t.Name, t.Value)).ToList()
+        };
         await repository.AddAsync(toDo);
         return toDo.Id;
     }
 
-    public async Task UpdateAsync(ToDoItem todoItem)
+    public async Task<bool> UpdateAsync(ToDoItem todoItem)
     {
-        var toDo =
-            new ToDo(todoItem.Id, todoItem.Title, todoItem.Description, todoItem.CreatedAt, todoItem.CompletedAt, todoItem.CompletedNotes);
+        var toDo = await repository.GetByIdAsync<ToDo, int>(todoItem.Id);
+        if (toDo is null)
+            return false;
+
+        toDo.Title = todoItem.Title;
+        toDo.Description = todoItem.Description;
+        toDo.Tags = todoItem.Tags.Select(t => new Tag(t.Name, t.Value)).ToList();
         await repository.UpdateAsync(toDo);
+        return true;
+    }
+
+    public async Task<bool> CompleteAsync(int id, string notes)
+    {
+        var toDo = await repository.GetByIdAsync<ToDo, int>(id);
+        if (toDo is null)
+            return false;
+
+        toDo.CompletedAt = DateTime.Now;
+        toDo.CompletedNotes = notes;
+        await repository.UpdateAsync(toDo);
+        return true;
+    }
+
+    public async Task<bool> AddNoteAsync(int id, string note)
+    {
+        var toDo = await repository.GetByIdAsync<ToDo, int>(id);
+        if (toDo is null)
+            return false;
+        toDo.Notes.Add(new Note(note, DateTime.Now));
+        await repository.UpdateAsync(toDo);
+        return true;
     }
 
     public async Task<ToDoItem> GetByIdAsync(int id)

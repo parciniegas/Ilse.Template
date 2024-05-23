@@ -10,9 +10,7 @@ public class CompleteToDoCommandHandler(IToDoRepository repository)
         CompleteTodoCommand command,
         CancellationToken cancellationToken = default)
     {
-        var todo = await repository.GetByIdAsync(command.Id);
-        todo.Complete(command.Notes);
-        await repository.UpdateAsync(todo);
-        return CompleteTodoCommandResponse.FromItem(todo);
+        var result = await repository.CompleteAsync(command.Id, command.Notes??string.Empty);
+        return CompleteTodoCommandResponse.FromBool(result);
     }
 }

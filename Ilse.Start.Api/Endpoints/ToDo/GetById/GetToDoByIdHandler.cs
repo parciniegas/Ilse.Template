@@ -15,7 +15,7 @@ public class GetToDoByIdHandler: IEndpoint
     public RouteHandlerBuilder Configure(IEndpointRouteBuilder endpoints)
     {
         return endpoints.MapGet($"/{Resources.ToDos}/{{id:int}}", HandleAsync)
-            .RequireAuthorization(Policies.TodoRead)
+            //.RequireAuthorization(Policies.TodoRead)
             .WithTags(Groups.Todo);
     }
 

@@ -1,32 +1,32 @@
-using System.ComponentModel.DataAnnotations;
+using Ilse.Repository.Contracts;
 using Ilse.Start.Domain.ToDo;
 
 namespace Ilse.Start.Infrastructure.Repository.ToDo;
 
-public class ToDo(string title, string? description)
+public class ToDo(string title, string? description): IAuditedEntity
 {
-    public ToDo(int id, string title, string? description,
-        DateTime createdAt, DateTime? completedAt, string? notes)
-    : this(title, description)
-    {
-        Id = id;
-    }
-
     public int Id { get; init; }
-    [MaxLength(50)]
-    public  string Title { get; init; } = title;
-
-    [MaxLength(500)]
-    public string? Description { get; init; } = description;
-
-    public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
-    public DateTime? CompletedAt { get; set; } = null;
-
-    [MaxLength(1000)]
-    public string? Notes { get; set; } = null;
-
+    public  string Title { get; set; } = title;
+    public string? Description { get; set; } = description;
+    public ICollection<Tag> Tags { get; set; } = [];
+    public List<Note> Notes { get; set; } = [];
+    public Category? Category { get; set; }
+    public DateTime? CompletedAt { get; set; }
+    public string? CompletedNotes { get; set; }
     public bool IsDone => CompletedAt != null;
-
+    public DateTime CreatedAt { get; set; }
+    public string? CreatedBy { get; set; }
+    public DateTime UpdatedAt { get; set; }
+    public string? UpdatedBy { get; set; }
     public ToDoItem GetToDoItem() =>
-        new ToDoItem(Id, Title, Description ?? string.Empty, CreatedAt, CompletedAt, Notes, IsDone);
+        new ToDoItem(Title, Description ?? string.Empty, CompletedAt, CompletedNotes,
+                        Tags.Select(t => new Domain.ToDo.Tag(t.Name, t.Value)).ToList())
+                        {
+                            Id = Id,
+                            Notes = Notes.Select(n => new Domain.ToDo.Note(n.Text, n.CreatedAt)).ToList(),
+                            CompletedNotes = CompletedNotes
+                        };
 }
+
+public record Tag(string Name, string Value);
+public record Note(string Text, DateTime CreatedAt);

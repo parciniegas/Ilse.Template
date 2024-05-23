@@ -10,23 +10,39 @@ public class ToDoRepository: IToDoRepository
     public Task<int> CreateAsync(ToDoItem todoItem)
     {
         var id = _todos.Count + 1;
-        var toDo = new ToDo(id, todoItem.Title, todoItem.Description, todoItem.CreatedAt, todoItem.CompletedAt,
-            todoItem.CompletedNotes);
+        var toDo = new ToDo(todoItem.Title, todoItem.Description)
+        {
+            Id = id,
+            Tags = todoItem.Tags.Select(t => new Tag(t.Name, t.Value)).ToList()
+        };
         _todos.Add(toDo);
         return Task.FromResult(id);
     }
 
-    public async Task UpdateAsync(ToDoItem todoItem)
+    public async Task<bool> UpdateAsync(ToDoItem todoItem)
     {
-        var todoToUpdate = (await _todos.AsQueryable().FirstOrDefaultAsync(t => t.Id == todoItem.Id))
-            ?? throw new Exception($"ToDo with id {todoItem.Id} not found");
+        var todoToUpdate = await _todos.AsQueryable().FirstOrDefaultAsync(t => t.Id == todoItem.Id);
+        if (todoToUpdate is null)
+            return false;
         todoToUpdate.CompletedAt = todoItem.CompletedAt;
-        todoToUpdate.Notes = todoItem.CompletedNotes;
+        todoToUpdate.CompletedNotes = todoItem.CompletedNotes;
+        return true;
+    }
+
+    public Task<bool> CompleteAsync(int id, string notes)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> AddNoteAsync(int id, string note)
+    {
+        throw new NotImplementedException();
     }
 
     public async Task<IEnumerable<ToDoItem>> GetAllAsync()
     {
-        var todos = _todos.Select(t => new ToDoItem(t.Title, t.Description, t.CompletedAt, t.Notes)
+        var todos =
+            _todos.Select(t => new ToDoItem(t.Title, t.Description, t.CompletedAt, t.CompletedNotes)
         {
             Id = t.Id,
             CreatedAt = t.CreatedAt
@@ -40,7 +56,7 @@ public class ToDoRepository: IToDoRepository
         if (todo == null)
             return ToDoItem.GetNull();
 
-        var item = new ToDoItem(todo.Title, todo.Description, todo.CompletedAt, todo.Notes)
+        var item = new ToDoItem(todo.Title, todo.Description, todo.CompletedAt, todo.CompletedNotes)
         {
             Id = todo.Id,
             CreatedAt = todo.CreatedAt
@@ -54,7 +70,7 @@ public class ToDoRepository: IToDoRepository
         if (todo == null)
             return ToDoItem.GetNull();
 
-        var item = new ToDoItem(todo.Title, todo.Description, todo.CompletedAt, todo.Notes)
+        var item = new ToDoItem(todo.Title, todo.Description, todo.CompletedAt, todo.CompletedNotes)
         {
             Id = todo.Id,
             CreatedAt = todo.CreatedAt
@@ -65,7 +81,7 @@ public class ToDoRepository: IToDoRepository
     public async Task<IEnumerable<ToDoItem>> GetByStatusAsync(bool isDone)
     {
         var todos = _todos.Where(t => t.IsDone == isDone)
-            .Select(t => new ToDoItem(t.Title, t.Description, t.CompletedAt, t.Notes)
+            .Select(t => new ToDoItem(t.Title, t.Description, t.CompletedAt, t.CompletedNotes)
         {
             Id = t.Id,
             CreatedAt = t.CreatedAt
@@ -76,11 +92,12 @@ public class ToDoRepository: IToDoRepository
 
     public async Task<IEnumerable<ToDoItem>> GetToDoItemsAsync(Func<ToDoItem, bool> predicate)
     {
-        var todos = _todos.Where(t => predicate(new ToDoItem(t.Title, t.Description, t.CompletedAt, t.Notes)
+        var todos =
+            _todos.Where(t => predicate(new ToDoItem(t.Title, t.Description, t.CompletedAt, t.CompletedNotes)
         {
             Id = t.Id,
             CreatedAt = t.CreatedAt
-        })).Select(t => new ToDoItem(t.Title, t.Description, t.CompletedAt, t.Notes)
+        })).Select(t => new ToDoItem(t.Title, t.Description, t.CompletedAt, t.CompletedNotes)
         {
             Id = t.Id,
             CreatedAt = t.CreatedAt
@@ -91,7 +108,7 @@ public class ToDoRepository: IToDoRepository
 
     public Task<bool> ExistsAsync(string title)
     {
-        var exists = _todos.Any(t => t.Title == title);
+        var exists = _todos.Exists(t => t.Title == title);
         return Task.FromResult(exists);
     }
 }

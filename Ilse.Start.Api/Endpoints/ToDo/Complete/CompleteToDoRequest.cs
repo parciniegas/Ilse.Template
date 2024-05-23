@@ -2,10 +2,10 @@ using Ilse.Start.Application.ToDo.Commands.Complete;
 
 namespace Ilse.Start.Api.Endpoints.ToDo.Complete;
 
-public record CompleteToDoRequest(int Id, string? Notes = null)
+public record CompleteToDoRequest(string? Notes = null)
 {
-    internal AppCompleteToDoCommand GetAppCompleteToDoCommand()
+    internal AppCompleteToDoCommand GetAppCompleteToDoCommand(int id)
     {
-        return new AppCompleteToDoCommand(Id, Notes);
+        return new AppCompleteToDoCommand(id, Notes);
     }
 }

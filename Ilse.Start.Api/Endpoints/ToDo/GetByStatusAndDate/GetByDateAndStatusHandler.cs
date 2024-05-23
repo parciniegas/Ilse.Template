@@ -13,11 +13,11 @@ public class GetByDateAndStatusHandler: IEndpoint
             HandleAsync);
     }
 
-    private async Task<Results<
+    private static async Task<Results<
         Ok<GetByStatusAndDateRequest>,
         BadRequest<ProblemDetails>>>
         HandleAsync([AsParameters] GetByStatusAndDateRequest request)
     {
-        return TypedResults.Ok(request);
+        return await Task.FromResult(TypedResults.Ok(request));
     }
 }

@@ -2,13 +2,13 @@ using Ilse.Cqrs.Commands;
 
 namespace Ilse.Start.Domain.ToDo.Commands.Create;
 
-public record CreateToDoCommand(string Title, string? Description = null) : ICommand
+public record CreateToDoCommand(string Title, string? Description = null, List<Tag>? Tags = null) : ICommand
 {
     public ToDoItem GetTodo()
     {
         var todo = new ToDoItem(Title, Description)
         {
-            CreatedAt = DateTime.Now
+            Tags = Tags ?? []
         };
         return todo;
     }

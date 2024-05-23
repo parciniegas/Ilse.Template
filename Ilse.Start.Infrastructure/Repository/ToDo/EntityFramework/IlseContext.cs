@@ -10,7 +10,9 @@ public class IlseContext(
     IServiceProvider serviceProvider,
     IOptions<RepositoryOptions> repositoryOptions) : BaseContext(dbContextOptions, serviceProvider, repositoryOptions)
 {
+    public required DbSet<Category> Categories { get; set; }
     public required DbSet<ToDo> ToDos { get; set; }
+    public required DbSet<Note> Notes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

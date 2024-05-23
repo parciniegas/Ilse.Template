@@ -13,6 +13,6 @@ public class AppCompleteToDoCommandHandler(ICommandDispatcher commandDispatcher)
     {
         var result =
             await commandDispatcher.ExecAsync<CompleteTodoCommand, OperationResult<CompleteTodoCommandResponse>>(command, cancellationToken);
-        return AppCompleteToDoCommandResponse.FromItem(result.Value!.Item);
+        return AppCompleteToDoCommandResponse.FromBool(result.Value!.Completed);
     }
 }
