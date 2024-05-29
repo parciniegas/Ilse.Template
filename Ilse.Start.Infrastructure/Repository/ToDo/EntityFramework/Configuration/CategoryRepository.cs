@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Ilse.Start.Infrastructure.Repository.ToDo.EntityFramework.Configuration;
 
-public class Category: IEntityTypeConfiguration<Repository.ToDo.Category>
+public class CategoryRepository: IEntityTypeConfiguration<Repository.ToDo.Category>
 {
     public void Configure(EntityTypeBuilder<Repository.ToDo.Category> builder)
     {

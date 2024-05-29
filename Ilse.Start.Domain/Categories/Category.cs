@@ -1,6 +1,8 @@
-namespace Ilse.Start.Domain.ToDo;
+using Ilse.Start.Domain.ToDo;
 
-public class ToDoCategory
+namespace Ilse.Start.Domain.Categories;
+
+public class Category
 {
     public int Id { get; set; }
     public required string Name { get; set; }

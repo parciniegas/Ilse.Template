@@ -29,12 +29,16 @@ public class ToDoConfiguration: IEntityTypeConfiguration<ToDo>
         builder.Property(p => p.Tags)
             .HasConversion(
                 t => JsonSerializer.Serialize(t, JsonSerializerOptions.Default),
-                t => JsonSerializer.Deserialize<List<Tag>>(t, JsonSerializerOptions.Default) ?? new List<Tag>());
+                t => JsonSerializer.Deserialize<List<Tag>>(t, JsonSerializerOptions.Default) ?? new List<Tag>())
+            .HasMaxLength(2000);
         builder.OwnsMany(p => p.Notes, n =>
         {
             n.WithOwner().HasForeignKey("TodoId");
             n.Property<int>("Id");
             n.HasKey("Id");
+            n.Property(p => p.Text)
+                .HasMaxLength(2000)
+                .IsRequired();
         });
     }
 }

@@ -1,4 +1,5 @@
 using Ilse.Start.Common;
+using Ilse.Start.Domain.Categories;
 
 namespace Ilse.Start.Domain.ToDo;
 
@@ -33,7 +34,7 @@ public class ToDoItem(string title, string? description, List<Tag>? tags = null)
     public DateTime? CompletedAt { get; private set; }
     public string? CompletedNotes { get; set; }
     public int ToDoCategoryId { get; set; }
-    public ToDoCategory? ToDoCategory { get; set; }
+    public Category? Category { get; set; }
     public bool IsDone { get; private set; }
 
     public void Complete(string? notes = null)
