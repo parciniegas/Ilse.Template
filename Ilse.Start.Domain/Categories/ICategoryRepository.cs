@@ -6,7 +6,8 @@ public interface ICategoryRepository
     Task<bool> UpdateAsync(Category category);
     Task<Category> GetByIdAsync(int id);
     Task<IEnumerable<Category>> GetAllAsync();
-    Task<IEnumerable<Category>> GetByTitleAsync(string title);
+    Task<Category> GetByTitleAsync(string title);
     Task<IEnumerable<Category>> GetFilteredAsync(Func<Category, bool> filter);
+    Task<bool> AddTodo(int categoryId, int todoId);
     Task<bool> ExistsAsync(string title);
 }

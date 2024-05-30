@@ -9,7 +9,10 @@ using Ilse.MultiTenant.DependencyInjection;
 using Ilse.MultiTenant.Middleware;
 using Ilse.Start.Api.Config;
 using Ilse.Repository.DependencyInjection;
+using Ilse.Start.Domain.Categories;
 using Ilse.Start.Domain.ToDo;
+using Ilse.Start.Domain.Todos;
+using Ilse.Start.Infrastructure.Repository.EntityFramework;
 using Ilse.Start.Infrastructure.Repository.ToDo.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,7 +32,8 @@ builder.Services.AddQueries();
 builder.Services.AddEvents();
 builder.Services.AddEndpoints();
 builder.Services.AddRepository<IlseContext>();
-builder.Services.AddScoped<IToDoRepository, ToDoRepository>();
+builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 
 var app = builder.Build();

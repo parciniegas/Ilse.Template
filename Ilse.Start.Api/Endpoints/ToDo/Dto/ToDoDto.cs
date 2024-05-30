@@ -1,4 +1,5 @@
 using Ilse.Start.Domain.ToDo;
+using Ilse.Start.Domain.Todos;
 
 namespace Ilse.Start.Api.Endpoints.ToDo.Dto;
 
@@ -11,7 +12,7 @@ public record ToDoDto(
     string? CompletedNotes,
     bool IsCompleted)
 {
-    public static ToDoDto FromToDoItem(ToDoItem todo)
+    public static ToDoDto FromToDoItem(Todo todo)
     {
         return new ToDoDto(
             todo.Id,

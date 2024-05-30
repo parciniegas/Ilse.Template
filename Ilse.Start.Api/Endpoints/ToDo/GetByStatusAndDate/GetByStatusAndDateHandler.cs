@@ -11,9 +11,9 @@ public class GetByStatusAndDateHandler: IEndpoint
 {
     public RouteHandlerBuilder Configure(IEndpointRouteBuilder endpoints)
     {
-        return endpoints.MapGet($"{Resources.ToDos}/by_status_and_date/", HandleAsync)
+        return endpoints.MapGet($"{Resources.Todos}/by_status_and_date/", HandleAsync)
             //.RequireAuthorization(Policies.TodoRead)
-            .WithTags(Groups.Todo);
+            .WithTags(Groups.Todos);
     }
 
 private static async Task<Results<

@@ -3,7 +3,7 @@ using Ilse.Core.Results;
 using Ilse.Cqrs.Commands;
 using Ilse.MinimalApi.EndPoints;
 using Ilse.Start.Api.Config;
-using Ilse.Start.Application.ToDo.Commands.Complete;
+using Ilse.Start.Application.Todos.Commands.Complete;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,9 +13,9 @@ public class CompleteToDoRequestHandler : IEndpoint
 {
     public RouteHandlerBuilder Configure(IEndpointRouteBuilder endpoints)
     {
-        return endpoints.MapPut($"/{Resources.ToDos}/{{id:int}}/complete", HandleAsync)
+        return endpoints.MapPut($"/{Resources.Todos}/{{id:int}}/complete", HandleAsync)
             .RequireAuthorization(Policies.TodoComplete)
-            .WithTags(Groups.Todo);
+            .WithTags(Groups.Todos);
     }
 
     private static async Task<Results<Accepted, BadRequest<ProblemDetails>>>
@@ -26,7 +26,7 @@ public class CompleteToDoRequestHandler : IEndpoint
     {
         var command = request.GetAppCompleteToDoCommand(id);
         var result =
-            await commandDispatcher.ExecAsync<AppCompleteToDoCommand, OperationResult<AppCompleteToDoCommandResponse>>(command);
+            await commandDispatcher.ExecAsync<AppCompleteTodoCommand, OperationResult<AppCompleteTodoCommandResponse>>(command);
         if (result.IsSuccess)
             return TypedResults.Accepted($"/todos/{id}");
 

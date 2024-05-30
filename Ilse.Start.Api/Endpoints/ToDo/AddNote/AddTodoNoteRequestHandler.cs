@@ -3,7 +3,7 @@ using Ilse.Core.Results;
 using Ilse.Cqrs.Commands;
 using Ilse.MinimalApi.EndPoints;
 using Ilse.Start.Api.Config;
-using Ilse.Start.Application.ToDo.Commands.AddNote;
+using Ilse.Start.Application.Todos.Commands.AddNote;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,9 +13,9 @@ public class AddTodoNoteRequestHandler: IEndpoint
 {
     public RouteHandlerBuilder Configure(IEndpointRouteBuilder endpoints)
     {
-        return endpoints.MapPut($"/{Resources.ToDos}/{{id:int}}/addnote", HandleAsync)
+        return endpoints.MapPut($"/{Resources.Todos}/{{id:int}}/addnote", HandleAsync)
             .RequireAuthorization(Policies.TodoAddNote)
-            .WithTags(Groups.Todo);
+            .WithTags(Groups.Todos);
     }
 
     private static async Task<Results<Accepted, BadRequest<ProblemDetails>>>
@@ -26,7 +26,7 @@ public class AddTodoNoteRequestHandler: IEndpoint
     {
         var command = request.GetAppAddToDoNoteCommand(id);
         var result =
-            await commandDispatcher.ExecAsync<AppAddToDoNoteCommand, OperationResult<AppAddToDoNoteCommandResponse>>(command);
+            await commandDispatcher.ExecAsync<AppAddTodoNoteCommand, OperationResult<AppAddTodoNoteCommandResponse>>(command);
         if (result.IsSuccess)
             return TypedResults.Accepted($"/todos/{id}");
 

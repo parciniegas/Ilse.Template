@@ -4,7 +4,7 @@ using Ilse.Cqrs.Queries;
 using Ilse.MinimalApi.EndPoints;
 using Ilse.Start.Api.Config;
 using Ilse.Start.Api.Endpoints.ToDo.Dto;
-using Ilse.Start.Application.ToDo.Queries.GetByTitle;
+using Ilse.Start.Application.Todos.Queries.GetByTitle;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +14,9 @@ public class GetToDoByTitleHandler: IEndpoint
 {
     public RouteHandlerBuilder Configure(IEndpointRouteBuilder endpoints)
     {
-        return endpoints.MapGet($"{Resources.ToDos}/by_title/{{title}}", HandleAsync)
+        return endpoints.MapGet($"{Resources.Todos}/by_title/{{title}}", HandleAsync)
             .RequireAuthorization(Policies.TodoRead)
-            .WithTags(Groups.Todo);
+            .WithTags(Groups.Todos);
     }
 
     private static async Task<Results<
@@ -32,7 +32,7 @@ public class GetToDoByTitleHandler: IEndpoint
                 .QueryAsync<AppGetToDoByTitleQuery, OperationResult<AppGetToDoByTitleResponse>>(query);
         if (result.IsFailure)
             return TypedResults.BadRequest(result.ProblemDetails(contextAccessor.Context!.CorrelationId));
-        var todos = ToDoDto.FromToDoItem(result.Value!.ToDoItem);
+        var todos = ToDoDto.FromToDoItem(result.Value!.Todo);
         return TypedResults.Ok(todos);
     }
 }

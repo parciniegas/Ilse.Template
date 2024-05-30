@@ -1,11 +1,11 @@
-using Ilse.Start.Application.ToDo.Commands.AddNote;
+using Ilse.Start.Application.Todos.Commands.AddNote;
 
 namespace Ilse.Start.Api.Endpoints.ToDo.AddNote;
 
 public record AddNoteRequest(string Note)
 {
-    internal AppAddToDoNoteCommand GetAppAddToDoNoteCommand(int id)
+    internal AppAddTodoNoteCommand GetAppAddToDoNoteCommand(int id)
     {
-        return new AppAddToDoNoteCommand(id, Note);
+        return new AppAddTodoNoteCommand(id, Note);
     }
 }

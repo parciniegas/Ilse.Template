@@ -17,7 +17,10 @@ internal static partial class Config
             .AddPolicy(Policies.TodoRead, policy =>
                 policy.RequireAssertion(c =>
                     c.User.HasClaim(Policies.TodoRead, "true") ||
-                        c.User.IsInRole(Roles.Admin)));
+                    c.User.IsInRole(Roles.Admin)))
+            .AddPolicy(Policies.CategoryCreate, policy =>
+                policy.RequireAssertion(c =>
+                    c.User.HasClaim(Policies.CategoryCreate, "true")));
 
     }
 }

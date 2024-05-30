@@ -29,8 +29,4 @@
     <ProjectReference Include="..\Ilse.Start.Infrastructure\Ilse.Start.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Endpoints\Category\Add\" />
-  </ItemGroup>
-
 </Project>
