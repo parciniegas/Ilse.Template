@@ -1,14 +1,14 @@
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.ToDo.Queries.GetById;
 using Ilse.Start.Domain.Todos;
+using Ilse.Start.Domain.Todos.Queries.GetById;
 
 namespace Ilse.Start.Application.Todos.Queries.GetById;
 
-public record AppGetToDoByIdQuery(int Id) : IQuery
+public record AppGetTodoByIdQuery(int Id) : IQuery
 {
-    public static AppGetToDoByIdQuery FromId(int id)
+    public static AppGetTodoByIdQuery FromId(int id)
     {
-        return new AppGetToDoByIdQuery(id);
+        return new AppGetTodoByIdQuery(id);
     }
 
     public static GetToDoByIdQuery GetToDoByIdQuery(int id)
@@ -17,11 +17,11 @@ public record AppGetToDoByIdQuery(int Id) : IQuery
     }
 }
 
-public record AppGetToDoByIdQueryResponse(Todo Todo)
+public record AppGetTodoByIdQueryResponse(Todo Todo)
     : GetTodoByIdQueryResponse(Todo)
 {
-    public static AppGetToDoByIdQueryResponse FromDomainResponse(GetTodoByIdQueryResponse todo)
+    public static AppGetTodoByIdQueryResponse FromDomainResponse(GetTodoByIdQueryResponse todo)
     {
-        return new AppGetToDoByIdQueryResponse(todo.Todo);
+        return new AppGetTodoByIdQueryResponse(todo.Todo);
     }
 }

@@ -1,4 +1,3 @@
-using Ilse.Core.Results;
 using Ilse.Cqrs.Commands;
 using Ilse.Start.Domain.Categories.Commands.Create;
 

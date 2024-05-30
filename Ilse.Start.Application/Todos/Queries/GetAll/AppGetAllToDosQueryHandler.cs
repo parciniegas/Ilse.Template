@@ -1,6 +1,6 @@
 using Ilse.Core.Results;
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.ToDo.Queries.GetAll;
+using Ilse.Start.Domain.Todos.Queries.GetAll;
 
 namespace Ilse.Start.Application.Todos.Queries.GetAll;
 
@@ -8,7 +8,7 @@ public class AppGetAllToDosQueryHandler(IQueryDispatcher queryDispatcher)
     : IQueryHandler<AppGetAllToDosQuery, OperationResult<AppGetAllTodosQueryResponse>>
 {
     public async Task<OperationResult<AppGetAllTodosQueryResponse>>
-        HandleAsync(AppGetAllToDosQuery query, CancellationToken cancellationToken = new CancellationToken())
+        HandleAsync(AppGetAllToDosQuery query, CancellationToken cancellationToken = new())
     {
         var domainQuery = AppGetAllToDosQuery.GetAllToDosQuery();
         var todos =

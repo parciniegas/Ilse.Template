@@ -1,6 +1,6 @@
 using Ilse.Core.Results;
 using Ilse.Cqrs.Commands;
-using Ilse.Start.Domain.ToDo.Commands.Complete;
+using Ilse.Start.Domain.Todos.Commands.Complete;
 
 namespace Ilse.Start.Application.Todos.Commands.Complete;
 

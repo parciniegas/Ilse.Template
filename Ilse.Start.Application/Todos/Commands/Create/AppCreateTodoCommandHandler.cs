@@ -8,7 +8,7 @@ public class AppCreateToDoCommandHandler(ICommandDispatcher commandDispatcher)
     : ICommandHandler<AppCreateTodoCommand, OperationResult<AppCreateToDoCommandResponse>>
 {
     public async Task<OperationResult<AppCreateToDoCommandResponse>>
-        HandleAsync(AppCreateTodoCommand command, CancellationToken cancellationToken = new CancellationToken())
+        HandleAsync(AppCreateTodoCommand command, CancellationToken cancellationToken = new())
     {
         var result = await commandDispatcher.ExecAsync<CreateToDoCommand, OperationResult<CreateToDoCommandResponse>>(command, cancellationToken);
         return result.IsSuccess

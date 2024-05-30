@@ -1,6 +1,6 @@
 using Ilse.Cqrs.Commands;
-using Ilse.Start.Domain.ToDo.Commands.AddNote;
 using Ilse.Start.Domain.Todos;
+using Ilse.Start.Domain.Todos.Commands.AddNote;
 
 namespace Ilse.Start.Application.Todos.Commands.AddNote;
 

@@ -8,7 +8,7 @@ public class Todo(DateTime? completedAt)
     {
     }
 
-    private static readonly Todo Empty = new Todo() { Title = "Empty", Description = "Empty"};
+    private static readonly Todo Empty = new() { Title = "Empty", Description = "Empty"};
 
     public int Id { get; init; }
     public required string Title { get; set; }

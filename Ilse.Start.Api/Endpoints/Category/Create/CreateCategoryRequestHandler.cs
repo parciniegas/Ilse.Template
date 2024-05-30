@@ -36,7 +36,8 @@ public class CreateCategoryRequestHandler: IEndpoint
                 new CreateCategoryRequestResponse(result.Value!.Id));
 
         var problemDetails = result.ProblemDetails(correlationAccessor.Context!.CorrelationId);
-        logger.LogError(problemDetails.ToJson());
+        var error = problemDetails.ToJson();
+        logger.LogError(error);
         return result.ErrorType switch
         {
             ErrorType.BadRequest => TypedResults.BadRequest(problemDetails),

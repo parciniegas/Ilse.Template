@@ -8,7 +8,7 @@ public class AddTodoToCategoryCommandHandler(ICategoryRepository repository)
     : ICommandHandler<AddTodoToCategoryCommand, OperationResult<AddTodoToCategoryCommandResponse>>
 {
     public async Task<OperationResult<AddTodoToCategoryCommandResponse>>
-        HandleAsync(AddTodoToCategoryCommand command, CancellationToken cancellationToken = new CancellationToken())
+        HandleAsync(AddTodoToCategoryCommand command, CancellationToken cancellationToken = new())
     {
         var result = await repository.AddTodo(command.CategoryId, command.TodoId);
         if (result)

@@ -1,8 +1,7 @@
 using Ilse.Core.Results;
 using Ilse.Cqrs.Commands;
-using Ilse.Start.Domain.Todos;
 
-namespace Ilse.Start.Domain.ToDo.Commands.Complete;
+namespace Ilse.Start.Domain.Todos.Commands.Complete;
 
 public class CompleteToDoCommandHandler(ITodoRepository repository)
     : ICommandHandler<CompleteTodoCommand, OperationResult<CompleteTodoCommandResponse>>

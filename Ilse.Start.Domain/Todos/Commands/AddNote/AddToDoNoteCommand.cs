@@ -1,7 +1,6 @@
 using Ilse.Cqrs.Commands;
-using Ilse.Start.Domain.Todos;
 
-namespace Ilse.Start.Domain.ToDo.Commands.AddNote;
+namespace Ilse.Start.Domain.Todos.Commands.AddNote;
 
 public record AddToDoNoteCommand(int TodoId, string Note) : BaseCommand;
 

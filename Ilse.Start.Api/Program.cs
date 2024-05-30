@@ -10,10 +10,8 @@ using Ilse.MultiTenant.Middleware;
 using Ilse.Start.Api.Config;
 using Ilse.Repository.DependencyInjection;
 using Ilse.Start.Domain.Categories;
-using Ilse.Start.Domain.ToDo;
 using Ilse.Start.Domain.Todos;
 using Ilse.Start.Infrastructure.Repository.EntityFramework;
-using Ilse.Start.Infrastructure.Repository.ToDo.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
 

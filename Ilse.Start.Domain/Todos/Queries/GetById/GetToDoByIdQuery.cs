@@ -1,7 +1,6 @@
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.Todos;
 
-namespace Ilse.Start.Domain.ToDo.Queries.GetById;
+namespace Ilse.Start.Domain.Todos.Queries.GetById;
 
 public record GetToDoByIdQuery(int Id) : IQuery;
 

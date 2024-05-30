@@ -6,7 +6,7 @@ public record CreateToDoCommand(string Title, int CategoryId, string? Descriptio
 {
     public Todo GetTodo()
     {
-        var todo = new Todo()
+        var todo = new Todo
         {
             Title = Title,
             CategoryId = CategoryId,

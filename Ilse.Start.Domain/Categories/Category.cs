@@ -1,11 +1,11 @@
-using Ilse.Start.Domain.ToDo;
 using Ilse.Start.Domain.Todos;
 
 namespace Ilse.Start.Domain.Categories;
 
 public class Category
 {
-    private static readonly Category Empty = new Category {
+    private static readonly Category Empty = new()
+    {
         Name = "Empty", Description = "Empty"
     };
 

@@ -1,9 +1,8 @@
 using Ilse.Core.Results;
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.ToDo.Errors;
-using Ilse.Start.Domain.Todos;
+using Ilse.Start.Domain.Todos.Errors;
 
-namespace Ilse.Start.Domain.ToDo.Queries.GetById;
+namespace Ilse.Start.Domain.Todos.Queries.GetById;
 
 public class GetToDoByIdQueryHandler(ITodoRepository repository)
 : IQueryHandler<GetToDoByIdQuery, OperationResult<GetTodoByIdQueryResponse>>

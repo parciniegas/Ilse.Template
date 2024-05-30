@@ -1,6 +1,6 @@
 using Ilse.Cqrs.Commands;
 
-namespace Ilse.Start.Domain.ToDo.Commands.Complete;
+namespace Ilse.Start.Domain.Todos.Commands.Complete;
 
 public record CompleteTodoCommand(int Id, string? Notes = null) : BaseCommand;
 

@@ -1,9 +1,8 @@
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.Todos;
 
-namespace Ilse.Start.Domain.ToDo.Queries.GetAll;
+namespace Ilse.Start.Domain.Todos.Queries.GetAll;
 
-public record GetAllToDosQuery(): IQuery;
+public record GetAllToDosQuery : IQuery;
 
 public record GetAllToDosQueryResponse(IEnumerable<Todo> ToDoItems)
 {

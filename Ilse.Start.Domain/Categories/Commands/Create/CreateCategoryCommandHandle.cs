@@ -8,7 +8,7 @@ public class CreateCategoryCommandHandle(ICategoryRepository repository):
     ICommandHandler<CreateCategoryCommand, OperationResult<CreateCategoryCommandResponse>>
 {
     public async Task<OperationResult<CreateCategoryCommandResponse>>
-        HandleAsync(CreateCategoryCommand command, CancellationToken cancellationToken = new CancellationToken())
+        HandleAsync(CreateCategoryCommand command, CancellationToken cancellationToken = new())
     {
         var category = command.GetCategory();
         var exists = await repository.ExistsAsync(category.Name);

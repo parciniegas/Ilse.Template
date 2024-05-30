@@ -8,7 +8,7 @@ public class UpdateCategoryCommandHandler(ICategoryRepository repository)
     : ICommandHandler<UpdateCategoryCommand, OperationResult<UpdateCategoryCommandResponse>>
 {
     public async Task<OperationResult<UpdateCategoryCommandResponse>>
-        HandleAsync(UpdateCategoryCommand command, CancellationToken cancellationToken = new CancellationToken())
+        HandleAsync(UpdateCategoryCommand command, CancellationToken cancellationToken = new())
     {
         if (command.IsAllNull)
             return CategoryErrors.NothingToUpdate();

@@ -1,10 +1,10 @@
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.ToDo.Queries.GetAll;
 using Ilse.Start.Domain.Todos;
+using Ilse.Start.Domain.Todos.Queries.GetAll;
 
 namespace Ilse.Start.Application.Todos.Queries.GetAll;
 
-public record AppGetAllToDosQuery() : IQuery
+public record AppGetAllToDosQuery : IQuery
 {
     public static GetAllToDosQuery GetAllToDosQuery()
     {

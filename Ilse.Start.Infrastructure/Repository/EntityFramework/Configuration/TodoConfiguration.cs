@@ -1,8 +1,9 @@
 using System.Text.Json;
+using Ilse.Start.Infrastructure.Repository.ToDo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Ilse.Start.Infrastructure.Repository.ToDo.EntityFramework.Configuration;
+namespace Ilse.Start.Infrastructure.Repository.EntityFramework.Configuration;
 
 public class TodoConfiguration: IEntityTypeConfiguration<Todo>
 {

@@ -25,7 +25,7 @@ public class Todo(string title, int categoryId, string? description): IAuditedEn
             Description = Description,
             Tags = Tags.Select(t => new Domain.Todos.Tag(t.Name, t.Value)).ToList(),
             Notes = Notes.Select(n => new Domain.Todos.Note(n.Text, n.CreatedAt)).ToList(),
-            CompletedNotes = CompletedNotes,
+            CompletedNotes = CompletedNotes
         };
 }
 

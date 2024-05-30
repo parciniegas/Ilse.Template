@@ -1,6 +1,6 @@
 using Ilse.Core.Results;
 
-namespace Ilse.Start.Domain.ToDo.Errors;
+namespace Ilse.Start.Domain.Todos.Errors;
 
 public class ToDoErrors
 {

@@ -1,16 +1,14 @@
 using Ilse.Core.Results;
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.ToDo.Queries.GetByStatus;
 using Ilse.Start.Domain.Todos;
+using Ilse.Start.Domain.Todos.Queries.GetByStatus;
 
 namespace Ilse.Start.Application.Todos.Queries.GetByStatus;
 
 public record AppGetToDosByStatusQuery(bool IsComplete) : IQuery
 {
-    public static AppGetToDosByStatusQuery FromStatus(bool isComplete) =>
-        new AppGetToDosByStatusQuery(isComplete);
-    public static GetToDosByStatusQuery GetToDoByStatusQuery(bool isComplete) =>
-        new GetToDosByStatusQuery(isComplete);
+    public static AppGetToDosByStatusQuery FromStatus(bool isComplete) => new(isComplete);
+    public static GetToDosByStatusQuery GetToDoByStatusQuery(bool isComplete) => new(isComplete);
 }
 
 public record AppGetToDosByStatusResponse(List<Todo> ToDoItems)

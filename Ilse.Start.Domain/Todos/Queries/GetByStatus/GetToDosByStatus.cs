@@ -1,8 +1,7 @@
 using Ilse.Core.Results;
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.Todos;
 
-namespace Ilse.Start.Domain.ToDo.Queries.GetByStatus;
+namespace Ilse.Start.Domain.Todos.Queries.GetByStatus;
 
 public record GetToDosByStatusQuery(bool IsCompleted) : IQuery;
 

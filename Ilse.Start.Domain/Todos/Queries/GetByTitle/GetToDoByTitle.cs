@@ -1,7 +1,6 @@
 using Ilse.Cqrs.Queries;
-using Ilse.Start.Domain.Todos;
 
-namespace Ilse.Start.Domain.ToDo.Queries.GetByTitle;
+namespace Ilse.Start.Domain.Todos.Queries.GetByTitle;
 
 public record GetToDoByTitleQuery(string Title): IQuery;
 

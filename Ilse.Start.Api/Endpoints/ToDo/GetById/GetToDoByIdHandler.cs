@@ -27,9 +27,9 @@ public class GetToDoByIdHandler: IEndpoint
         IQueryDispatcher queryDispatcher,
         int id)
     {
-        var query = AppGetToDoByIdQuery.FromId(id);
+        var query = AppGetTodoByIdQuery.FromId(id);
         var result =
-            await queryDispatcher.QueryAsync<AppGetToDoByIdQuery, OperationResult<AppGetToDoByIdQueryResponse>>(query);
+            await queryDispatcher.QueryAsync<AppGetTodoByIdQuery, OperationResult<AppGetTodoByIdQueryResponse>>(query);
         if (result.IsSuccess)
             return TypedResults.Ok(ToDoDto.FromToDoItem(result.Value!.Todo));
         return TypedResults.BadRequest(
