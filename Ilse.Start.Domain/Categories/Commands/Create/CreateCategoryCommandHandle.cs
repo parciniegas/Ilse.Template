@@ -4,8 +4,8 @@ using Ilse.Start.Domain.Categories.Errors;
 
 namespace Ilse.Start.Domain.Categories.Commands.Create;
 
-public class CreateCategoryCommandHandle(ICategoryRepository repository):
-    ICommandHandler<CreateCategoryCommand, OperationResult<CreateCategoryCommandResponse>>
+public class CreateCategoryCommandHandle(ICategoryRepository repository)
+    : ICommandHandler<CreateCategoryCommand, OperationResult<CreateCategoryCommandResponse>>
 {
     public async Task<OperationResult<CreateCategoryCommandResponse>>
         HandleAsync(CreateCategoryCommand command, CancellationToken cancellationToken = new())
