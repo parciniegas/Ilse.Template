@@ -1,7 +1,6 @@
 using Ilse.Repository.Contracts;
 using Ilse.Start.Domain.Categories;
-using Todo = Ilse.Start.Infrastructure.Repository.ToDo.Todo;
-using Category = Ilse.Start.Infrastructure.Repository.ToDo.Category;
+using Category = Ilse.Start.Infrastructure.Repository.Todo.Category;
 
 namespace Ilse.Start.Infrastructure.Repository.EntityFramework;
 
@@ -71,10 +70,10 @@ public class CategoryRepository(IRepository repository): ICategoryRepository
         var entity = await repository.GetByIdAsync<Category, int>(categoryId);
         if (entity is null)
             return false;
-        var todo = await repository.GetByIdAsync<Todo, int>(todoId);
+        var todo = await repository.GetByIdAsync<Todo.Todo, int>(todoId);
         if (todo is null)
             return false;
-        entity.Todos.Add(await repository.GetByIdAsync<Todo, int>(todoId));
+        entity.Todos.Add(await repository.GetByIdAsync<Todo.Todo, int>(todoId));
         await repository.UpdateAsync(entity);
         await repository.SaveChangesAsync();
         return true;

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Ilse.Start.Infrastructure.Repository.EntityFramework.Configuration;
 
-public class CategoryConfiguration: IEntityTypeConfiguration<ToDo.Category>
+public class CategoryConfiguration: IEntityTypeConfiguration<Todo.Category>
 {
-    public void Configure(EntityTypeBuilder<ToDo.Category> builder)
+    public void Configure(EntityTypeBuilder<Todo.Category> builder)
     {
         builder.HasKey(p => p.Id);
         builder.Property(p => p.Id)

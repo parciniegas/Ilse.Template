@@ -1,6 +1,6 @@
 using Ilse.Repository.Contracts;
 
-namespace Ilse.Start.Infrastructure.Repository.ToDo;
+namespace Ilse.Start.Infrastructure.Repository.Todo;
 
 public class Todo(string title, int categoryId, string? description): IAuditedEntity
 {

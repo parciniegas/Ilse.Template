@@ -1,13 +1,13 @@
 using System.Text.Json;
-using Ilse.Start.Infrastructure.Repository.ToDo;
+using Ilse.Start.Infrastructure.Repository.Todo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Ilse.Start.Infrastructure.Repository.EntityFramework.Configuration;
 
-public class TodoConfiguration: IEntityTypeConfiguration<Todo>
+public class TodoConfiguration: IEntityTypeConfiguration<Todo.Todo>
 {
-    public void Configure(EntityTypeBuilder<Todo> builder)
+    public void Configure(EntityTypeBuilder<Todo.Todo> builder)
     {
         builder.HasKey(p => p.Id);
         builder.Property(p => p.Id)

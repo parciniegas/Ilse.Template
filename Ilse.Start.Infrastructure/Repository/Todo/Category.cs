@@ -1,4 +1,4 @@
-namespace Ilse.Start.Infrastructure.Repository.ToDo;
+namespace Ilse.Start.Infrastructure.Repository.Todo;
 
 public class Category
 {

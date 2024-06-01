@@ -1,6 +1,6 @@
 using Ilse.Repository.Abstracts;
 using Ilse.Repository.Options;
-using Ilse.Start.Infrastructure.Repository.ToDo;
+using Ilse.Start.Infrastructure.Repository.Todo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -12,7 +12,7 @@ public class IlseContext(
     IOptions<RepositoryOptions> repositoryOptions) : BaseContext(dbContextOptions, serviceProvider, repositoryOptions)
 {
     public required DbSet<Category> Categories { get; set; }
-    public required DbSet<Todo> Todos { get; set; }
+    public required DbSet<Todo.Todo> Todos { get; set; }
     public required DbSet<Note> Notes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
