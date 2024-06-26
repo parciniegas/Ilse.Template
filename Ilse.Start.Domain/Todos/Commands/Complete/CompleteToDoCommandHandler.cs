@@ -4,9 +4,9 @@ using Ilse.Cqrs.Commands;
 namespace Ilse.Start.Domain.Todos.Commands.Complete;
 
 public class CompleteToDoCommandHandler(ITodoRepository repository)
-    : ICommandHandler<CompleteTodoCommand, OperationResult<CompleteTodoCommandResponse>>
+    : ICommandHandler<CompleteTodoCommand, Result<CompleteTodoCommandResponse>>
 {
-    public async Task<OperationResult<CompleteTodoCommandResponse>> HandleAsync(
+    public async Task<Result<CompleteTodoCommandResponse>> HandleAsync(
         CompleteTodoCommand command,
         CancellationToken cancellationToken = default)
     {

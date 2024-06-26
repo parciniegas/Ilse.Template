@@ -26,7 +26,7 @@ public class AddTodoNoteRequestHandler: IEndpoint
     {
         var command = request.GetAppAddToDoNoteCommand(id);
         var result =
-            await commandDispatcher.ExecAsync<AppAddTodoNoteCommand, OperationResult<AppAddTodoNoteCommandResponse>>(command);
+            await commandDispatcher.ExecAsync<AppAddTodoNoteCommand, Result<AppAddTodoNoteCommandResponse>>(command);
         if (result.IsSuccess)
             return TypedResults.Accepted($"/todos/{id}");
 

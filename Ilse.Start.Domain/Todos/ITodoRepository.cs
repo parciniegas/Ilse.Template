@@ -11,4 +11,5 @@ public interface ITodoRepository
     public Task<Todo> GetByTitleAsync(string title);
     public Task<IEnumerable<Todo>> GetByStatusAsync(bool isDone);
     public Task<bool> ExistsAsync(string title);
+    public Task SaveChangesAsync();
 }

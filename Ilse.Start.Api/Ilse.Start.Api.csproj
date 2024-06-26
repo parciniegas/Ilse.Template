@@ -9,18 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ilse.CorrelationId" Version="1.1.0" />
-    <PackageReference Include="Ilse.Cqrs" Version="1.0.2" />
+    <PackageReference Include="Ilse.CorrelationId" Version="1.1.1" />
+    <PackageReference Include="Ilse.Cqrs" Version="1.1.2" />
     <PackageReference Include="Ilse.Events" Version="1.0.5" />
-    <PackageReference Include="Ilse.MinimalApi" Version="1.0.2" />
-    <PackageReference Include="Ilse.MultiTenant" Version="1.0.0" />
-    <PackageReference Include="Ilse.Repository" Version="1.2.1" />
+    <PackageReference Include="Ilse.MinimalApi" Version="1.1.1" />
+    <PackageReference Include="Ilse.MultiTenant" Version="1.0.1" />
+    <PackageReference Include="Ilse.Repository" Version="1.2.5" />
     <PackageReference Include="Ilse.TenantContext" Version="1.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
-    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="8.0.4" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.6" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>

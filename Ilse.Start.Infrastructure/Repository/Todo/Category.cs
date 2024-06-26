@@ -1,6 +1,9 @@
+using Ilse.Repository.Abstracts;
+using Ilse.Repository.Contracts;
+
 namespace Ilse.Start.Infrastructure.Repository.Todo;
 
-public class Category
+public class Category: BaseEntity
 {
     public int Id { get; set; }
     public required string Name { get; set; }

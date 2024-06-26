@@ -26,7 +26,7 @@ public class CompleteToDoRequestHandler : IEndpoint
     {
         var command = request.GetAppCompleteToDoCommand(id);
         var result =
-            await commandDispatcher.ExecAsync<AppCompleteTodoCommand, OperationResult<AppCompleteTodoCommandResponse>>(command);
+            await commandDispatcher.ExecAsync<AppCompleteTodoCommand, Result<AppCompleteTodoCommandResponse>>(command);
         if (result.IsSuccess)
             return TypedResults.Accepted($"/todos/{id}");
 

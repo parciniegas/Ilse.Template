@@ -5,12 +5,12 @@ using Ilse.Start.Domain.Todos.Commands.Create;
 namespace Ilse.Start.Application.Todos.Commands.Create;
 
 public class AppCreateToDoCommandHandler(ICommandDispatcher commandDispatcher)
-    : ICommandHandler<AppCreateTodoCommand, OperationResult<AppCreateToDoCommandResponse>>
+    : ICommandHandler<AppCreateTodoCommand, Result<AppCreateToDoCommandResponse>>
 {
-    public async Task<OperationResult<AppCreateToDoCommandResponse>>
+    public async Task<Result<AppCreateToDoCommandResponse>>
         HandleAsync(AppCreateTodoCommand command, CancellationToken cancellationToken = new())
     {
-        var result = await commandDispatcher.ExecAsync<CreateToDoCommand, OperationResult<CreateToDoCommandResponse>>(command, cancellationToken);
+        var result = await commandDispatcher.ExecAsync<CreateToDoCommand, Result<CreateToDoCommandResponse>>(command, cancellationToken);
         return result.IsSuccess
             ? AppCreateToDoCommandResponse.FromDomainResponse(result.Value!)
             : result.Error!;

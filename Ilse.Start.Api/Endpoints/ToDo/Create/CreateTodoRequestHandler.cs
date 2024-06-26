@@ -29,7 +29,7 @@ public class CreateTodoRequestHandler: IEndpoint
             ICommandDispatcher commandDispatcher)
     {
         var result =
-            await commandDispatcher.ExecAsync<AppCreateTodoCommand, OperationResult<AppCreateToDoCommandResponse>>(request.GetAppCreateToDoCommand());
+            await commandDispatcher.ExecAsync<AppCreateTodoCommand, Result<AppCreateToDoCommandResponse>>(request.GetAppCreateToDoCommand());
         if (result.IsSuccess)
             return TypedResults.Created($"{Resources.Todos}/{result.Value!.Id}", new CreateToDoRequestResponse(result.Value!.Id));
 

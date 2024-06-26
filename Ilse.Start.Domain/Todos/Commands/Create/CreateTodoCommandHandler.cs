@@ -5,9 +5,9 @@ using Ilse.Start.Domain.Todos.Errors;
 namespace Ilse.Start.Domain.Todos.Commands.Create;
 
 public class CreateTodoCommandHandler(ITodoRepository repository)
-: ICommandHandler<CreateToDoCommand, OperationResult<CreateToDoCommandResponse>>
+: ICommandHandler<CreateToDoCommand, Result<CreateToDoCommandResponse>>
 {
-    public async Task<OperationResult<CreateToDoCommandResponse>> HandleAsync(
+    public async Task<Result<CreateToDoCommandResponse>> HandleAsync(
         CreateToDoCommand command,
         CancellationToken cancellationToken = default)
     {
@@ -17,6 +17,8 @@ public class CreateTodoCommandHandler(ITodoRepository repository)
             return ToDoErrors.ToDoAlreadyExists(todo.Title);
 
         var id = await repository.CreateAsync(todo);
+
+        await repository.SaveChangesAsync();
         return CreateToDoCommandResponse.FromId(id);
     }
 }

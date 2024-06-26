@@ -29,7 +29,7 @@ public class CreateCategoryRequestHandler: IEndpoint
     {
         var result =
             await commandDispatcher
-                .ExecAsync<AppCreateCategoryCommand, OperationResult<AppCreateCategoryCommandResponse>>
+                .ExecAsync<AppCreateCategoryCommand, Result<AppCreateCategoryCommandResponse>>
                     (request.GetAppCreateCategoryCommand());
         if (result.IsSuccess)
             return TypedResults.Created($"{Resources.Categories}/{result.Value!.Id}",

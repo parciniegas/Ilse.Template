@@ -26,7 +26,7 @@ private static async Task<Results<
         // var query = AppGetToDosByStatusAndDateQuery.FromStatusAndDate(request.Status, request.CreatedAt);
         // var result =
         //     await queryDispatcher
-        //         .QueryAsync<AppGetToDosByStatusAndDateQuery, OperationResult<AppGetToDosByStatusAndDateResponse>>(query);
+        //         .QueryAsync<AppGetToDosByStatusAndDateQuery, Result<AppGetToDosByStatusAndDateResponse>>(query);
         // if (result.IsFailure)
         //     return TypedResults.BadRequest(result.ProblemDetails(contextAccessor.Context!.CorrelationId));
         // var todos = result.Value!.ToDoItems.Select(ToDoDto.FromToDoItem).ToArray();

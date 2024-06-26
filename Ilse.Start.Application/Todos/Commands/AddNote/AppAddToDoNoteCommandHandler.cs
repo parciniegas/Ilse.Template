@@ -5,13 +5,13 @@ using Ilse.Start.Domain.Todos.Commands.AddNote;
 namespace Ilse.Start.Application.Todos.Commands.AddNote;
 
 public class AppAddToDoNoteCommandHandler(ICommandDispatcher commandDispatcher)
-    : ICommandHandler<AppAddTodoNoteCommand, OperationResult<AppAddTodoNoteCommandResponse>>
+    : ICommandHandler<AppAddTodoNoteCommand, Result<AppAddTodoNoteCommandResponse>>
 {
-    public async Task<OperationResult<AppAddTodoNoteCommandResponse>>
+    public async Task<Result<AppAddTodoNoteCommandResponse>>
         HandleAsync(AppAddTodoNoteCommand command, CancellationToken cancellationToken = new())
     {
         var domainCommand = command.ToDomainCommand();
-        var result = await commandDispatcher.ExecAsync<AddToDoNoteCommand, OperationResult<AppAddTodoNoteCommandResponse>>(domainCommand, cancellationToken);
+        var result = await commandDispatcher.ExecAsync<AddToDoNoteCommand, Result<AppAddTodoNoteCommandResponse>>(domainCommand, cancellationToken);
         return AppAddTodoNoteCommandResponse.FromItem(result.Value!.Item);
     }
 }

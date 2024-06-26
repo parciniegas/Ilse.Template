@@ -9,7 +9,7 @@ public record GetToDosByStatusQueryResponse(List<Todo> ToDoItems)
 {
     public List<Todo> ToDoItems { get; private set; } = ToDoItems;
 
-    public static OperationResult<GetToDosByStatusQueryResponse> FromToDoItem(List<Todo>? todos)
+    public static Result<GetToDosByStatusQueryResponse> FromToDoItem(List<Todo>? todos)
     {
         return todos != null
             ? new GetToDosByStatusQueryResponse(todos)

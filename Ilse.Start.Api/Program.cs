@@ -1,10 +1,10 @@
-using Ilse.Core.Exceptions;
 using Ilse.CorrelationId.DependencyInjection;
 using Ilse.CorrelationId.Middleware;
 using Ilse.Cqrs.Commands;
 using Ilse.Cqrs.DependencyInjection;
 using Ilse.Events.DependencyInjection;
 using Ilse.MinimalApi.EndPoints;
+using Ilse.MinimalApi.Exceptions;
 using Ilse.MultiTenant.DependencyInjection;
 using Ilse.MultiTenant.Middleware;
 using Ilse.Start.Api.Config;

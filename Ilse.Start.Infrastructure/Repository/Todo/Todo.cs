@@ -1,8 +1,9 @@
+using Ilse.Repository.Abstracts;
 using Ilse.Repository.Contracts;
 
 namespace Ilse.Start.Infrastructure.Repository.Todo;
 
-public class Todo(string title, int categoryId, string? description): IAuditedEntity
+public class Todo(string title, int categoryId, string? description): BaseEntity
 {
     public int Id { get; init; }
     public  string Title { get; set; } = title;
@@ -14,10 +15,7 @@ public class Todo(string title, int categoryId, string? description): IAuditedEn
     public DateTime? CompletedAt { get; set; }
     public string? CompletedNotes { get; set; }
     public bool IsDone => CompletedAt != null;
-    public DateTime CreatedAt { get; set; }
-    public string? CreatedBy { get; set; }
-    public DateTime UpdatedAt { get; set; }
-    public string? UpdatedBy { get; set; }
+
     public Domain.Todos.Todo GetTodo() => new(CompletedAt)
         {
             Id = Id,

@@ -15,7 +15,7 @@ public record AppGetToDosByStatusResponse(List<Todo> ToDoItems)
 {
     public List<Todo> ToDoItems { get; private set; } = ToDoItems;
 
-    public static OperationResult<AppGetToDosByStatusResponse> FromToDoItem(List<Todo>? todos)
+    public static Result<AppGetToDosByStatusResponse> FromToDoItem(List<Todo>? todos)
     {
         return todos != null
             ? new AppGetToDosByStatusResponse(todos)

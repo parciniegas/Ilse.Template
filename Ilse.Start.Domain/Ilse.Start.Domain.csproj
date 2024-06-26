@@ -7,10 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ilse.Core" Version="1.0.0" />
-    <PackageReference Include="Ilse.Cqrs" Version="1.0.2" />
+    <PackageReference Include="Ilse.Cqrs" Version="1.1.2" />
     <PackageReference Include="Ilse.Events" Version="1.0.5" />
-    <PackageReference Include="Ilse.Repository" Version="1.2.1" />
+    <PackageReference Include="Ilse.Repository" Version="1.2.5" />
   </ItemGroup>
 
   <ItemGroup>

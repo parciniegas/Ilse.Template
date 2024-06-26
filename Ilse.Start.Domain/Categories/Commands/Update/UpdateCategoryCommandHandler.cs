@@ -5,9 +5,9 @@ using Ilse.Start.Domain.Categories.Errors;
 namespace Ilse.Start.Domain.Categories.Commands.Update;
 
 public class UpdateCategoryCommandHandler(ICategoryRepository repository)
-    : ICommandHandler<UpdateCategoryCommand, OperationResult<UpdateCategoryCommandResponse>>
+    : ICommandHandler<UpdateCategoryCommand, Result<UpdateCategoryCommandResponse>>
 {
-    public async Task<OperationResult<UpdateCategoryCommandResponse>>
+    public async Task<Result<UpdateCategoryCommandResponse>>
         HandleAsync(UpdateCategoryCommand command, CancellationToken cancellationToken = new())
     {
         if (command.IsAllNull)

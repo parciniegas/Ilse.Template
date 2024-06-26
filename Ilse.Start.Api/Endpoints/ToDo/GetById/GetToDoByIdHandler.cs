@@ -15,7 +15,7 @@ public class GetToDoByIdHandler: IEndpoint
     public RouteHandlerBuilder Configure(IEndpointRouteBuilder endpoints)
     {
         return endpoints.MapGet($"/{Resources.Todos}/{{id:int}}", HandleAsync)
-            //.RequireAuthorization(Policies.TodoRead)
+            .RequireAuthorization(Policies.TodoRead)
             .WithTags(Groups.Todos);
     }
 
@@ -29,7 +29,7 @@ public class GetToDoByIdHandler: IEndpoint
     {
         var query = AppGetTodoByIdQuery.FromId(id);
         var result =
-            await queryDispatcher.QueryAsync<AppGetTodoByIdQuery, OperationResult<AppGetTodoByIdQueryResponse>>(query);
+            await queryDispatcher.QueryAsync<AppGetTodoByIdQuery, Result<AppGetTodoByIdQueryResponse>>(query);
         if (result.IsSuccess)
             return TypedResults.Ok(ToDoDto.FromToDoItem(result.Value!.Todo));
         return TypedResults.BadRequest(

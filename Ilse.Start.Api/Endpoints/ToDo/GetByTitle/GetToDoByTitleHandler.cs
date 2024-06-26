@@ -29,7 +29,7 @@ public class GetToDoByTitleHandler: IEndpoint
                 var query = AppGetToDoByTitleQuery.FromTitle(title);
         var result =
             await queryDispatcher
-                .QueryAsync<AppGetToDoByTitleQuery, OperationResult<AppGetToDoByTitleResponse>>(query);
+                .QueryAsync<AppGetToDoByTitleQuery, Result<AppGetToDoByTitleResponse>>(query);
         if (result.IsFailure)
             return TypedResults.BadRequest(result.ProblemDetails(contextAccessor.Context!.CorrelationId));
         var todos = ToDoDto.FromToDoItem(result.Value!.Todo);

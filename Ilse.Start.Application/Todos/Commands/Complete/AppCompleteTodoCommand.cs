@@ -7,7 +7,7 @@ public record AppCompleteTodoCommand(int Id, string? Notes = null) : CompleteTod
 
 public record AppCompleteTodoCommandResponse(bool Completed)
 {
-    public static OperationResult<AppCompleteTodoCommandResponse> FromBool(bool completed)
+    public static Result<AppCompleteTodoCommandResponse> FromBool(bool completed)
     {
         return new AppCompleteTodoCommandResponse(completed);
     }

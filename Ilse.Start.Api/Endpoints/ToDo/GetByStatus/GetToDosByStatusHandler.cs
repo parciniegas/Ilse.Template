@@ -29,7 +29,7 @@ public class GetToDosByStatusHandler: IEndpoint
         var query = AppGetToDosByStatusQuery.FromStatus(status);
         var result =
             await queryDispatcher
-                .QueryAsync<AppGetToDosByStatusQuery, OperationResult<AppGetToDosByStatusResponse>>(query);
+                .QueryAsync<AppGetToDosByStatusQuery, Result<AppGetToDosByStatusResponse>>(query);
         if (result.IsFailure)
             return TypedResults.BadRequest(result.ProblemDetails(contextAccessor.Context!.CorrelationId));
         var todos = result.Value!.ToDoItems.Select(ToDoDto.FromToDoItem).ToArray();

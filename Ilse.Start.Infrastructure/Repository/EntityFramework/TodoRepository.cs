@@ -14,7 +14,6 @@ public class TodoRepository(IRepository repository): ITodoRepository
             Tags = todo.Tags.Select(t => new Tag(t.Name, t.Value)).ToList()
         };
         await repository.AddAsync(entity);
-        await repository.SaveChangesAsync();
         return entity.Id;
     }
 
@@ -28,7 +27,6 @@ public class TodoRepository(IRepository repository): ITodoRepository
         entity.Description = todo.Description;
         entity.Tags = todo.Tags.Select(t => new Tag(t.Name, t.Value)).ToList();
         await repository.UpdateAsync(entity);
-        await repository.SaveChangesAsync();
         return true;
     }
 
@@ -41,7 +39,6 @@ public class TodoRepository(IRepository repository): ITodoRepository
         entity.CompletedAt = DateTime.Now;
         entity.CompletedNotes = notes;
         await repository.UpdateAsync(entity);
-        await repository.SaveChangesAsync();
         return true;
     }
 
@@ -52,7 +49,6 @@ public class TodoRepository(IRepository repository): ITodoRepository
             return false;
         toDo.Notes.Add(new Note(note, DateTime.Now));
         await repository.UpdateAsync(toDo);
-        await repository.SaveChangesAsync();
         return true;
     }
 
@@ -88,5 +84,10 @@ public class TodoRepository(IRepository repository): ITodoRepository
     {
         var exist = (await repository.GetByAsync<Todo.Todo>(t => t.Title == title)).Any();
         return exist;
+    }
+
+    public async Task SaveChangesAsync()
+    {
+        await repository.SaveChangesAsync();
     }
 }

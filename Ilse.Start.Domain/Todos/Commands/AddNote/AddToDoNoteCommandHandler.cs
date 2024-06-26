@@ -4,9 +4,9 @@ using Ilse.Cqrs.Commands;
 namespace Ilse.Start.Domain.Todos.Commands.AddNote;
 
 public class AddToDoNoteCommandHandler(ITodoRepository repository):
-    ICommandHandler<AddToDoNoteCommand, OperationResult<AddToDoNoteCommandResponse>>
+    ICommandHandler<AddToDoNoteCommand, Result<AddToDoNoteCommandResponse>>
 {
-    public async Task<OperationResult<AddToDoNoteCommandResponse>>
+    public async Task<Result<AddToDoNoteCommandResponse>>
         HandleAsync(AddToDoNoteCommand command, CancellationToken cancellationToken = new())
     {
         var todo = await repository.GetByIdAsync(command.TodoId);

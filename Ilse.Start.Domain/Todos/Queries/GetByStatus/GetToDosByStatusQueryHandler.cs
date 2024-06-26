@@ -4,9 +4,9 @@ using Ilse.Cqrs.Queries;
 namespace Ilse.Start.Domain.Todos.Queries.GetByStatus;
 
 public class GetToDosByStatusQueryHandler(ITodoRepository repository)
-: IQueryHandler<GetToDosByStatusQuery, OperationResult<GetToDosByStatusQueryResponse>>
+: IQueryHandler<GetToDosByStatusQuery, Result<GetToDosByStatusQueryResponse>>
 {
-    public async Task<OperationResult<GetToDosByStatusQueryResponse>>
+    public async Task<Result<GetToDosByStatusQueryResponse>>
         HandleAsync(GetToDosByStatusQuery query, CancellationToken cancellationToken = new())
     {
         var todos = await

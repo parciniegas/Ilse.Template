@@ -5,9 +5,9 @@ using Ilse.Start.Domain.Todos.Errors;
 namespace Ilse.Start.Domain.Todos.Queries.GetById;
 
 public class GetToDoByIdQueryHandler(ITodoRepository repository)
-: IQueryHandler<GetToDoByIdQuery, OperationResult<GetTodoByIdQueryResponse>>
+: IQueryHandler<GetToDoByIdQuery, Result<GetTodoByIdQueryResponse>>
 {
-    public async Task<OperationResult<GetTodoByIdQueryResponse>> HandleAsync(
+    public async Task<Result<GetTodoByIdQueryResponse>> HandleAsync(
         GetToDoByIdQuery query,
         CancellationToken cancellationToken = default)
     {
